@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: blue;
+}
+
+.header {
+    width: 100%;
+    padding: 12px 60px 0;
+}
+
+.header-inner {
+    background: #FAFAFA;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    left: 60px;
+    right: 60px;
+    top: 12px;
+    position: fixed;
+    z-index: 300;
+}
+
+.header-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+}
+
+.header-user__status-error {
+    color: red;
+}
+
+.header-user__status-succes {
+    color: chartreuse;
+}
+
+.header-user>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.header-user__name {
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.header-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-title {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.hot {
+    position: relative;
+    display: inline-block;
+}
+
+.hot-link {
+    color: #FFF;
+    font-weight: bold;
+    background-color: #FF4500;
+    padding: 8px 16px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.hot-link::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background-color: #FF4500;
+    border-radius: 24px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hot-link:hover {
+    background-color: #FF6347;
+    color: #ffffff;
+}
+
+.hot-link:hover::before {
+    opacity: 1;
+}

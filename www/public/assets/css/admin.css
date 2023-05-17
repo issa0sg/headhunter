@@ -1,0 +1,79 @@
+.arrow-down {
+    height: 15px;
+    width: 15px;
+    transition: all 0.3s ease;
+}
+.header-navbar>div:hover .arrow-down{
+    transform: rotate(180deg);
+}
+
+.header-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.categories,
+.orders,
+.tags {
+    position: relative;
+    display: inline-block;
+}
+
+.categories>li,
+.orders>li,
+.tags>li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.categories>li:hover,
+.orders>li:hover,
+.tags>li:hover {
+    color: blue;
+}
+
+.categories>li>img,
+.orders>li>img,
+.tags>li>img {
+    transition: transform 0.3s ease;
+}
+
+.categories .links,
+.orders .links,
+.tags .links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding: 8px;
+    z-index: 1;
+}
+
+.categories:hover .links,
+.orders:hover .links,
+.tags:hover .links {
+    display: block;
+}
+
+.categories .links a,
+.orders .links a,
+.tags .links a {
+    display: block;
+    padding: 4px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.categories .links a:hover,
+.orders .links a:hover,
+.tags .links a:hover {
+    color: blue;
+}

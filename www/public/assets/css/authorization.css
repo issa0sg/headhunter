@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+li {
+    list-style: none;
+    color: red;
+    font-size: 18px;
+}
+
+input {
+    all: unset;
+    padding: 2px 5px;
+    border-bottom: 1px solid #000000;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.block {
+    width: 50%;
+    padding: 24px 48px;
+    border-radius: 16px;
+    box-shadow: 2px 3px 20px 0.1px #000000;
+    background: #ffffff;
+    position: absolute;
+    z-index: 100;
+}
+
+.block-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 45px;
+    margin: 0 0 80px 26px;
+}
+
+.block-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.block-form__fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.block-form__fields>div {
+    width: 100%;
+    gap: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.block-link {
+    margin-top: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.block-link:hover {
+    color: grey;
+}
+
+
+.block-form__button {
+    width: 260px;
+    height: 34px;
+    background: #0C21C1;
+    box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.block-form__button:hover {
+    opacity: 0.6;
+}
