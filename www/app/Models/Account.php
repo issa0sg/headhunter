@@ -26,6 +26,16 @@ class Account extends Model
         return $this->active_balance;
     }
 
+    public function unholdBalance($value)
+    {
+        if($this->hold_balance>$value){
+            $this->hold_balance -= $value;
+            $this->active_balance += $value;
+            return $this->active_balance;
+        }
+        return 0;
+    }
+
     public function holdBalance($value)
     {
         if($this->active_balance>=$value){
@@ -40,11 +50,11 @@ class Account extends Model
     {
         if($value<0){
             return 0;
-        } elseif ($this->hold_balance < $value) {
+        } elseif($this->hold_balance < $value) {
             return 0;
         }
         $this->hold_balance -= $value;
-        $account->active_balance += $value;
+        $account->addBalance($value);
 
         return $account->active_balance;
     }

@@ -55,7 +55,7 @@ class OrderController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'reward' => 'required|integer',
+            'reward' => 'required|integer|min:1',
             'image' => 'nullable|image'
         ]);
 
@@ -148,10 +148,24 @@ class OrderController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'reward' => 'required|integer',
+            'reward' => 'required|integer|min:1',
             'image' => 'nullable|image'
         ]);
+
         $data = $request->all();
+        $account = auth()->user()->account;
+        $reward_diff = $data['reward'] - $order->reward;
+        if($reward_diff>0){
+            if(!$account->holdBalance($reward_diff)){
+                return redirect()->route('orders.index')->with('error','Недостаточно деняг для обновления');
+            }
+        } elseif($reward_diff<0){
+            if(!$account->unholdBalance(abs($reward_diff))){
+                return redirect()->route('orders.index')->with('error','Недостаточно деняг для обновления');
+            }
+        }
+        $account->update();
+
         $data['image'] = Order::uploadImage($request,$order->image);
         $order->update($data);
         $order->tags()->sync($request->tags);
@@ -169,11 +183,17 @@ class OrderController extends Controller
     {
         if($order = Order::find($id)){
             $this->authorize('isOwner', $order);
+            $account = auth()->user()->account;
+            if(!$account->unholdBalance($order->reward)){
+                return redirect()->route('orders.index')->with('error','Недостаточно деняг для обновления');
+            }
             $order->tags()->sync([]);
+            $account->update();
             Storage::delete($order->image);
             $order->delete();
+            
             return redirect()->route('orders.index')->with('success','Order deleted');
         }
-        return redirect()->back()->with('error',"Can't find this post");
+        return redirect()->back()->with('error',"Can't find this order");
     }
 }

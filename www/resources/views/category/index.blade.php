@@ -2,8 +2,6 @@
 
 @section('content')
 
-<link rel="stylesheet" href="../../../public/assets/css/section.css">
-
 
 <h1 class="title">Список категории</h1>
 

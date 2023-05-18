@@ -84,11 +84,7 @@ class UserController extends Controller
             'password' => $request->password
         ])){
             session()->flash('success','Пользователь был авторизован');
-            // if(Auth::user()->is_admin){
-            //     return redirect()->route('admin.index');
-            // } else {
-                return redirect()->home();
-            // }
+            return redirect()->home();
         } 
 
         return redirect()->back()->with('error','Неверные данные для авторизаиии');

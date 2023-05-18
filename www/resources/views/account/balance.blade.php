@@ -13,8 +13,9 @@
         </div>
 
         <div class="user-buttons">
-            <button class="button">пополнить баланс</button>
-            <button class="button">снять деньги</button>
+            <a href="{{route('deposite.form')}}" class="list-edit">Пополнить баланс</a>
+            <!-- <button class="button">пополнить баланс</button> -->
+            <a href="{{route('deposite.form')}}" class="list-edit">Снять баланс</a>
         </div>
     </div>
 </div>

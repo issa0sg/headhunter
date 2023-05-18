@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../public/assets/css/authorization.css">
+    <link rel="stylesheet" href="{{asset('assets/css/authorization.css')}}">
     <title>Register form</title>
 </head>
 
@@ -23,7 +23,7 @@
     @endif
 
     <div class="wrapper">
-        <img src="../../../public/assets/img/formBackground.jpg" alt="background" class="background-image">
+        <img src="{{asset('assets/img/formBackground.jpg')}}" alt="background" class="background-image">
 
         <div class="block register-block">
             <h1 class="block-title">
