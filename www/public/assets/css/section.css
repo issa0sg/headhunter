@@ -61,12 +61,12 @@ body {
 }
 
 .list-edit {
-    font-size: 24px;
+    font-size: 16px;
 }
 
 
 .button {
-    width: 180px;
+    width: 100px;
     height: 34px;
     align-items: center;
     appearance: none;
@@ -94,7 +94,7 @@ body {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .button:focus {

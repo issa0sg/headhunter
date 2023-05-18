@@ -20,14 +20,6 @@
         <a href="{{route('logout')}}">Logout</a>
     @endif -->
 
-    @if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif
-
     @auth
 
 
@@ -47,6 +39,14 @@
                 <li class="header-user__status-succes">
                     {{session('success')}}
                 </li>
+                @endif
+
+                @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li class="header-user__status-error">{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 @endif
             </div>
             <div class="hot">
